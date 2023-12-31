@@ -82,7 +82,7 @@ binomial_tile_plot(binomial.df)
 binomial_bar_plot(binomial.df)
 ```
 
-<img src="man/figures/README-quantitative variables-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ### Estimate gene size enrichment for quantitative variables by sample
 
@@ -111,7 +111,7 @@ binomial_tile_plot(binomial.df, by_sample = T)
 binomial_bar_plot(binomial.df, by_sample = T)
 ```
 
-<img src="man/figures/README-quantitative variable by sample-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 ### Estimate gene size enrichment for categorical variables
 

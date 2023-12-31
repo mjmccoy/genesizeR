@@ -59,7 +59,7 @@ lengths.df <- gene_lengths(filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_rele
 ```
 
 ### Estimate gene size enrichment for quantitative variables
-```{r quantitative variables, fig.height=6, fig.width=12, message=FALSE, warning=FALSE}
+```{r quantitative variables, message=FALSE, warning=FALSE}
 ################################################
 # Example 1: Gene size v. quantitative feature #
 ################################################
@@ -75,13 +75,15 @@ binomial.df <- binomial_test(data.df, feature_name = "log2FC")
 
 # Binomial tile plot
 binomial_tile_plot(binomial.df)
+```
 
+```{r fig.height=3, fig.width=14}
 # Binomial bar plot
 binomial_bar_plot(binomial.df)
 ```
 
 ### Estimate gene size enrichment for quantitative variables by sample
-```{r quantitative variable by sample, fig.height=6, fig.width=12, message=FALSE, warning=FALSE}
+```{r quantitative variable by sample, fig.height=3, fig.width=12, message=FALSE, warning=FALSE}
 ##########################################################
 # Example 2: Gene size v. quantitative feature by sample #
 ##########################################################
@@ -97,7 +99,9 @@ binomial.df <- binomial_test(data.df, by_sample = T)
 
 # Binomial tile plot
 binomial_tile_plot(binomial.df, by_sample = T)
+```
 
+```{r fig.height=12, fig.width=12}
 # Binomial bar plot
 binomial_bar_plot(binomial.df, by_sample = T)
 ```
