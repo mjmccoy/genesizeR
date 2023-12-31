@@ -10,7 +10,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 ![sizeR
-logo](https://github.com/mjmccoy/sizeR/man/figures/README-sizeR-logo.png)
+logo](https://github.com/mjmccoy/sizeR/blob/master/man/figures/README-sizeR-logo.svg)
 
 The goal of `sizeR` is to provide a collection of computational tools to
 analyze gene sizes within expression data or gene sets.
