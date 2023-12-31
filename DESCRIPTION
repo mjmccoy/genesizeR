@@ -28,3 +28,5 @@ Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)
 LazyData: true
+URL: https://github.com/mjmccoy/sizeR
+BugReports: https://github.com/mjmccoy/sizeR/issues
