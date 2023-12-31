@@ -19,11 +19,11 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of `sizeR` is to provide a collection of computational tools to analyze gene size enrichment within expression data or gene sets.
+The goal of `sizeR` is to provide a collection of computational tools to analyze gene sizes within expression data or gene sets.
 
 ## Requirements
 
-The `sizeR` package requires several packages from `tidyverse`. Either `tidyverse` can be installed and loaded, or these individual packages can be installed:
+The `sizeR` package requires several packages from `tidyverse`. Either `tidyverse` can be installed and loaded, or these individual packages can be installed and loaded:
 
 * `dplyr`
 * `tidyr`
@@ -59,7 +59,7 @@ lengths.df <- gene_lengths(filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_rele
 ```
 
 ### Estimate gene size enrichment for quantitative variables
-```{r quantitative variables, message=FALSE, warning=FALSE}
+```{r quantitative variables, fig.height=6, fig.width=12, message=FALSE, warning=FALSE}
 ################################################
 # Example 1: Gene size v. quantitative feature #
 ################################################
@@ -81,7 +81,7 @@ binomial_bar_plot(binomial.df)
 ```
 
 ### Estimate gene size enrichment for quantitative variables by sample
-```{r quantitative variable by sample, message=FALSE, warning=FALSE}
+```{r quantitative variable by sample, fig.height=6, fig.width=12, message=FALSE, warning=FALSE}
 ##########################################################
 # Example 2: Gene size v. quantitative feature by sample #
 ##########################################################
@@ -103,7 +103,7 @@ binomial_bar_plot(binomial.df, by_sample = T)
 ```
 
 ### Estimate gene size enrichment for categorical variables
-```{r categorical variable, message=FALSE, warning=FALSE}
+```{r categorical variable, fig.height=6, fig.width=12, message=FALSE, warning=FALSE}
 ##################################################
 # Example 3: Gene size v. gene set (categorical) #
 ##################################################

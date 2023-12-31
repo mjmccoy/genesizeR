@@ -10,13 +10,13 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 The goal of `sizeR` is to provide a collection of computational tools to
-analyze gene size enrichment within expression data or gene sets.
+analyze gene sizes within expression data or gene sets.
 
 ## Requirements
 
 The `sizeR` package requires several packages from `tidyverse`. Either
 `tidyverse` can be installed and loaded, or these individual packages
-can be installed:
+can be installed and loaded:
 
 -   `dplyr`
 -   `tidyr`
