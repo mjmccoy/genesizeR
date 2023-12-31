@@ -140,4 +140,4 @@ binomial_tile_plot(binomial.df, categorical = T)
 binomial_bar_plot(binomial.df, categorical = T)
 ```
 
-<img src="man/figures/README-categorical variable-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />

@@ -107,7 +107,7 @@ binomial_bar_plot(binomial.df, by_sample = T)
 ```
 
 ### Estimate gene size enrichment for categorical variables
-```{r categorical variable, fig.height=6, fig.width=12, message=FALSE, warning=FALSE}
+```{r categorical variable, message=FALSE, warning=FALSE}
 ##################################################
 # Example 3: Gene size v. gene set (categorical) #
 ##################################################
@@ -123,7 +123,9 @@ binomial.df <- binomial_test(data.df, categorical = T)
 
 # Binomial tile plot
 binomial_tile_plot(binomial.df, categorical = T)
+```
 
+```{r fig.height=4, fig.width=12}
 # Binomial bar plot
 binomial_bar_plot(binomial.df, categorical = T)
 ```
