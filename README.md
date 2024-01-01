@@ -12,11 +12,12 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 The goal of `sizeR` is to provide a collection of computational tools to
-analyze gene sizes within expression data or gene sets.
+analyze gene sizes within gene features (e.g. expression) and gene sets
+(e.g. upregulated/downregulated).
 
 If you use `sizeR` please cite our [paper]()
 
-    sizeR: an R package for the analysis of gene size within expression data and gene sets
+    sizeR: an R package for the analysis of gene size within gene features and gene sets
     Matthew J McCoy, Andrew Z Fire
     XXX, Volume XX, Issue XX, Month 2024, DOI, URL
 
@@ -56,7 +57,16 @@ library(ggplot2)
 library(sizeR)
 ```
 
-### Load user-specified gene lengths
+### Load user-specified gene coordinates
+
+Gene coordinates can be extracted from an annotation file (e.g. gtf,
+gff) or downloaded from
+[Ensembl](https://www.ensembl.org/biomart/martview). Here we use gene
+coordinates from Homo sapiens GRCh38.p14 Ensembl release 110. These
+should be in the format chromosome (e.g. Chromosome/scaffold name),
+chromosome start position \[e.g. Gene start (bp)\], chromosome end
+position \[e.g. Gene end (bp)\], and gene_id (e.g. Gene stable ID), in
+this specific order.
 
 ``` r
 # Load user_specified gene lengths
