@@ -47,9 +47,9 @@ binomial_test <- function(
       group_by(length_bins) %>%
       mutate(length_range = paste0(
         "[",
-        min(length) %>%round(1),
+        (min(length)/1e3) %>%round(0),
         ":",
-        max(length) %>% round(1),
+        (max(length)/1e3) %>% round(0),
         "]")) %>%
       ungroup() %>%
       arrange(length_bins) %>%
@@ -100,9 +100,9 @@ binomial_test <- function(
       group_by(length_bins) %>%
       mutate(length_range = paste0(
         "[",
-        min(length) %>% round(1),
+        (min(length)/1e3) %>% round(0),
         ":",
-        max(length) %>% round(1),
+        (max(length)/1e3) %>% round(0),
         "]")) %>%
       ungroup() %>%
       arrange(length_bins) %>%
@@ -152,9 +152,9 @@ binomial_test <- function(
       mutate(
         length_range = paste0(
           "[",
-          min(length) %>% round(1),
+          (min(length)/1e3) %>% round(0),
           ":",
-          max(length) %>% round(1),
+          (max(length)/1e3) %>% round(0),
           "]")) %>%
       ungroup() %>%
       arrange(length_bins) %>%

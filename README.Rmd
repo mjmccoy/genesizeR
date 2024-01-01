@@ -68,83 +68,110 @@ Gene coordinates can be extracted from an annotation file (e.g. gtf, gff) or dow
 ```{r gene lengths, message=FALSE, warning=FALSE}
 # Load user_specified gene lengths
 lengths.df <- gene_lengths(filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_release_110_gene_lengths.txt")
+
+head(lengths.df)
 ```
 
 ### Estimate gene size enrichment for quantitative variables
+#### Load quantitative data
 ```{r quantitative variables, message=FALSE, warning=FALSE}
-################################################
-# Example 1: Gene size v. quantitative feature #
-################################################
-
-# Load data
 data.df <- read_csv(file = "inst/extdata/example_expression_data.csv")
 
-# Append gene lengths
+head(data.df)
+```
+
+#### Append gene lengths
+```{r}
 data.df <- add_lengths(data.df, lengths.df)
 
-# Binomial test
-binomial.df <- binomial_test(data.df, feature_name = "log2FC")
+head(data.df)
+```
 
-# Binomial tile plot
+#### Perform binomial test for gene size enrichment/depletion
+```{r}
+binomial.df <- binomial_test(data.df, feature_name = "log2FC")
+```
+
+#### sizeR tile plot
+```{r}
 binomial_tile_plot(binomial.df)
 ```
 
-```{r fig.height=3, fig.width=14}
-# Binomial bar plot
+#### sizeR bar plot
+```{r fig.height=2, fig.width=16}
 binomial_bar_plot(binomial.df)
 ```
 
 ### Estimate gene size enrichment for quantitative variables by sample
-```{r quantitative variable by sample, fig.height=3, fig.width=12, message=FALSE, warning=FALSE}
-##########################################################
-# Example 2: Gene size v. quantitative feature by sample #
-##########################################################
-
-# Load data
+#### Load quantitative data
+```{r quantitative variable by sample, fig.height=4, fig.width=12, message=FALSE, warning=FALSE}
 data.df <- read_csv(file = "inst/extdata/example_expression_by_sample_data.csv")
 
-# Append gene lengths
+head(data.df)
+```
+
+#### Append gene lengths
+```{r}
 data.df <- add_lengths(data.df, lengths.df)
 
+head(data.df)
+```
+
+#### Perform binomial test for gene size enrichment/depletion
+```{r}
 # Binomial test
 binomial.df <- binomial_test(data.df, by_sample = T)
 
-# Binomial tile plot
+head(binomial.df)
+```
+
+#### Plot sizeR tile plot
+```{r fig.height=4, fig.width=12}
+
 binomial_tile_plot(binomial.df, by_sample = T)
 ```
 
-```{r fig.height=12, fig.width=12}
-# Binomial bar plot
+#### Plot sizeR bar plot
+```{r fig.height=8, fig.width=12}
 binomial_bar_plot(binomial.df, by_sample = T)
 ```
 
-```{r sizeR_line_plot}
-# sizeR line plot
+#### Plot sizeR line plot
+```{r sizeR_line_plot, message=FALSE, warning=FALSE}
 sizeR_line_plot(data.df) +
-  scale_color_manual(values = c("HS.r1" = "firebrick", "HS.r2" = "firebrick", "NHS.r1" = "black", "NHS.r2" = "black"))
+  scale_color_manual(values = c("condition1.r1" = "firebrick", "condition1.r2" = "firebrick", "condition2.r1" = "black", "condition2.r2" = "black"))
 ```
 
 ### Estimate gene size enrichment for categorical variables
-```{r categorical variable, message=FALSE, warning=FALSE}
-##################################################
-# Example 3: Gene size v. gene set (categorical) #
-##################################################
-
+#### Load gene set data
+```{r message=FALSE, warning=FALSE}
 # Load gene set data
 data.df <- read_csv(file = "inst/extdata/example_gene_set_data.csv")
 
-# Append gene lengths
+head(data.df)
+```
+
+#### Append gene lengths
+```{r message=FALSE, warning=FALSE}
 data.df <- add_lengths(data.df, lengths.df)
 
-# Binomial test
+head(data.df)
+```
+
+#### Perform binomial test for gene size enrichment/depletion
+```{r message=FALSE, warning=FALSE}
 binomial.df <- binomial_test(data.df, categorical = T)
 
-# Binomial tile plot
+head(binomial.df)
+```
+
+#### Plot sizeR tile plot
+```{r message=FALSE, warning=FALSE}
 binomial_tile_plot(binomial.df, categorical = T)
 ```
 
-```{r fig.height=4, fig.width=12}
-# Binomial bar plot
+#### Plot sizeR bar plot
+```{r fig.height=4, fig.width=8}
 binomial_bar_plot(binomial.df, categorical = T)
 ```
 
