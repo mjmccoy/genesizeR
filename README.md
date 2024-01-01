@@ -14,6 +14,12 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 The goal of `sizeR` is to provide a collection of computational tools to
 analyze gene sizes within expression data or gene sets.
 
+If you use `sizeR` please cite our [paper]()
+
+    sizeR: an R package for the analysis of gene size within expression data and gene sets
+    Matthew J McCoy, Andrew Z Fire
+    XXX, Volume XX, Issue XX, Month 2024, DOI, URL
+
 ## Requirements
 
 The `sizeR` package works with R version \>= 3.6.3 and several packages
