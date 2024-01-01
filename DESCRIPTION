@@ -1,5 +1,5 @@
 Package: sizeR
-Title: Gene Size Enrichment Analysis
+Title: sizeR: Analysis of Gene Size Enrichment
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Matthew", 

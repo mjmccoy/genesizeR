@@ -25,12 +25,12 @@ The goal of `sizeR` is to provide a collection of computational tools to analyze
 
 ## Requirements
 
-The `sizeR` package requires several packages from `tidyverse`. Either `tidyverse` can be installed and loaded, or these individual packages can be installed and loaded:
+The `sizeR` package works with R version >= 3.6.3 and several packages from `tidyverse`. Either `tidyverse` can be installed and loaded, or these individual packages can be installed and loaded:
 
-* `dplyr`
-* `tidyr`
-* `readr`
-* `ggplot2`
+* `dplyr` version >= 1.0.9
+* `tidyr` version >= 1.2.0
+* `readr` version >= 2.1.2
+* `ggplot2` version >= 3.3.6
 
 ## Installation
 
