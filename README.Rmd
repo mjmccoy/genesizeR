@@ -108,6 +108,12 @@ binomial_tile_plot(binomial.df, by_sample = T)
 binomial_bar_plot(binomial.df, by_sample = T)
 ```
 
+```{r sizeR_line_plot}
+# sizeR line plot
+sizeR_line_plot(data.df) +
+  scale_color_manual(values = c("HS.r1" = "firebrick", "HS.r2" = "firebrick", "NHS.r1" = "black", "NHS.r2" = "black"))
+```
+
 ### Estimate gene size enrichment for categorical variables
 ```{r categorical variable, message=FALSE, warning=FALSE}
 ##################################################

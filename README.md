@@ -115,6 +115,19 @@ binomial_bar_plot(binomial.df, by_sample = T)
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
+``` r
+# sizeR line plot
+sizeR_line_plot(data.df) +
+  scale_color_manual(values = c("HS.r1" = "firebrick", "HS.r2" = "firebrick", "NHS.r1" = "black", "NHS.r2" = "black"))
+#> Warning: Removed 196 rows containing non-finite values (stat_summary).
+#> Removed 196 rows containing non-finite values (stat_summary).
+#> No summary function supplied, defaulting to `mean_se()`
+#> Warning: Removed 196 rows containing non-finite values (stat_summary).
+#> No summary function supplied, defaulting to `mean_se()`
+```
+
+<img src="man/figures/README-sizeR_line_plot-1.png" width="100%" />
+
 ### Estimate gene size enrichment for categorical variables
 
 ``` r
