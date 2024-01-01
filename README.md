@@ -156,3 +156,10 @@ binomial_bar_plot(binomial.df, categorical = T)
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+# Contact
+
+If you have any comments or suggestions please raise an issue or contact
+us:  
+Matthew McCoy: <mjmccoy@stanford.edu>  
+Andrew Fire: <afire@stanford.edu>
