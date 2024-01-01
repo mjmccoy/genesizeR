@@ -1,15 +1,15 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<img src="man/figures/README-sizeR_logo.svg" width="20%" />
-
-# sizeR
+# sizeR <img src="man/figures/README-sizeR_logo.svg" align="right" height="138" /></a>
 
 <!-- badges: start -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
+
+## Overview
 
 The goal of `sizeR` is to provide a collection of computational tools to
 analyze gene sizes within gene features (e.g. expression) and gene sets
