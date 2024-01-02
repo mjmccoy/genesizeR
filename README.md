@@ -69,21 +69,21 @@ position \[e.g. Gene end (bp)\], and gene_id (e.g. Gene stable ID), in
 this specific order.
 
 ``` r
-# Load user_specified gene lengths
-lengths.df <- gene_lengths(filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_release_110_gene_lengths.txt")
+# Load user-provided gene coordinates and specify name of gene_id in the gene coordinates file (in this example: Gene stable ID)
+lengths.df <- gene_lengths(
+  filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_release_110_gene_lengths.txt",
+  gene_id = "Gene stable ID")
 
 head(lengths.df)
-#> # A tibble: 6 × 7
-#>   `Chromosome/scaffold name` `Gene start (bp)` `Gene end (bp)` `Gene stable ID`
-#>   <chr>                                  <dbl>           <dbl> <chr>           
-#> 1 MT                                       577             647 ENSG00000210049 
-#> 2 MT                                       648            1601 ENSG00000211459 
-#> 3 MT                                      1602            1670 ENSG00000210077 
-#> 4 MT                                      1671            3229 ENSG00000210082 
-#> 5 MT                                      3230            3304 ENSG00000209082 
-#> 6 MT                                      3307            4262 ENSG00000198888 
-#> # … with 3 more variables: `Gene stable ID version` <chr>, `Gene name` <chr>,
-#> #   length <dbl>
+#> # A tibble: 6 × 2
+#>   gene_id         length
+#>   <chr>            <dbl>
+#> 1 ENSG00000210049     71
+#> 2 ENSG00000211459    954
+#> 3 ENSG00000210077     69
+#> 4 ENSG00000210082   1559
+#> 5 ENSG00000209082     75
+#> 6 ENSG00000198888    956
 ```
 
 ### Estimate gene size enrichment for quantitative variables
@@ -91,7 +91,9 @@ head(lengths.df)
 #### Load quantitative data
 
 ``` r
-data.df <- read_csv(file = "inst/extdata/example_expression_data.csv")
+data.df <- sizeR_input(
+  file = "inst/extdata/example_expression_data.tsv",
+  gene_id = "gene_id")
 
 head(data.df)
 #> # A tibble: 6 × 15
@@ -131,6 +133,17 @@ head(data.df)
 
 ``` r
 binomial.df <- binomial_test(data.df, feature_name = "log2FC")
+
+head(binomial.df)
+#> # A tibble: 6 × 7
+#>   length_range feature_range     n total_trials      p_val     p_adj sign 
+#>   <ord>        <ord>         <int>        <int>      <dbl>     <dbl> <chr>
+#> 1 [0:4]        [-6.1:-2.6]      31          370 0.340      0.420     ""   
+#> 2 [0:4]        [-2.6:-2.1]      15          370 0.0000390  0.000205  "-"  
+#> 3 [0:4]        [-2.1:-1.7]      20          370 0.00229    0.00673   ""   
+#> 4 [0:4]        [-1.7:-1.4]      23          369 0.0147     0.0323    ""   
+#> 5 [0:4]        [-1.4:-1.2]      20          369 0.00227    0.00673   ""   
+#> 6 [0:4]        [-1.2:-1]        13          369 0.00000498 0.0000383 "-"
 ```
 
 #### sizeR tile plot
@@ -154,7 +167,9 @@ binomial_bar_plot(binomial.df)
 #### Load quantitative data
 
 ``` r
-data.df <- read_csv(file = "inst/extdata/example_expression_by_sample_data.csv")
+data.df <- sizeR_input(
+  file = "inst/extdata/example_expression_by_sample_data.tsv",
+  gene_id = "Gene stable ID")
 
 head(data.df)
 #> # A tibble: 6 × 5
@@ -234,7 +249,9 @@ sizeR_line_plot(data.df) +
 
 ``` r
 # Load gene set data
-data.df <- read_csv(file = "inst/extdata/example_gene_set_data.csv")
+data.df <- sizeR_input(
+  file = "inst/extdata/example_gene_set_data.tsv",
+  gene_id = "Gene stable ID")
 
 head(data.df)
 #> # A tibble: 6 × 2

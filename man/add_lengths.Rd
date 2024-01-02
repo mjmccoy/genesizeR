@@ -7,9 +7,9 @@
 add_lengths(data.df, lengths.df)
 }
 \arguments{
-\item{data.df}{a dataframe with gene_id from Ensembl and either expression data or gene sets}
+\item{data.df}{a dataframe with gene_id (must match gene_id in gene coordinates) and either expression data or gene sets}
 
-\item{lengths.df}{a dataframe with gene_id from Ensembl and gene lengths, either the package provided H. sapiens GRCh38.p14 Ensembl Release 110 or user provided with input_lengths()}
+\item{lengths.df}{a dataframe with gene_id and gene lengths, either the package provided H. sapiens GRCh38.p14 Ensembl Release 110 or user provided with input_lengths()}
 }
 \value{
 returns a dataframe with gene lengths appended

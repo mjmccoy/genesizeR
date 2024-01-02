@@ -5,12 +5,14 @@
 \title{gene_lengths: a function that allows users to input their own ensembl gene
 list to calculate gene lengths}
 \usage{
-gene_lengths(filepath)
+gene_lengths(filepath, gene_id)
 }
 \arguments{
 \item{filepath}{a filepath to a tab-delimited file with chromosome,
-start position, end positions, and ensembl gene id (in that order)
-for each gene}
+start position, end positions, and ensembl gene id (in that order)}
+
+\item{gene_id}{name of gene_id column (e.g. \verb{Gene stable ID}).
+This must match the gene_id name in data.}
 }
 \value{
 returns dataframe with gene lengths for user provided genes
@@ -24,5 +26,6 @@ lengths.df <- gene_lengths(
   file = system.file(
     "extdata",
     "example_gene_coordinates.tsv",
-    package = "sizeR"))
+    package = "sizeR"),
+  gene_id = "Gene stable ID")
 }

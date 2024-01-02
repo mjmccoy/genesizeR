@@ -1,25 +1,24 @@
-#' gene_lengths: a function that allows users to input their own ensembl gene
-#'  list to calculate gene lengths
+#' sizeR_input: a function to input gene expression or gene set data
 #'
 #' @import dplyr
 #' @import readr
 #'
-#' @param filepath a filepath to a tab-delimited file with chromosome,
-#'  start position, end positions, and ensembl gene id (in that order)
+#' @param filepath a filepath to a tab-delimited file with gene_id and
+#'  expression data or gene set data
 #' @param gene_id name of gene_id column (e.g. `Gene stable ID`).
 #'  This must match the gene_id name in data.
 #'
-#' @return returns dataframe with gene lengths for user provided genes
+#' @return returns dataframe with gene_id and expression or gene set data
 #' @export
 #'
 #' @examples
-#' lengths.df <- gene_lengths(
+#' data.df <- sizeR_input(
 #'   file = system.file(
 #'     "extdata",
 #'     "example_gene_coordinates.tsv",
 #'     package = "sizeR"),
 #'   gene_id = "Gene stable ID")
-gene_lengths <- function(filepath, gene_id) {
+sizeR_input <- function(filepath, gene_id) {
 
   tryCatch({
     # Attempt to read the file
@@ -32,13 +31,10 @@ gene_lengths <- function(filepath, gene_id) {
 
     # Calculate gene lengths
     data.df <- data.df %>%
-      dplyr::rename(gene_id := {{gene_id}}) %>%
-      mutate(length = data.df[[3]] - data.df[[2]] + 1) %>%
-      filter(!is.na(length)) %>%
-      select(gene_id, length)
+      dplyr::rename(gene_id := {{gene_id}})
   }, error = function(e) {
     # Handle errors gracefully
-    warning("An error occurred while processing gene_lengths. Details: ", conditionMessage(e))
+    warning("An error occurred while processing sizeR_input. Details: ", conditionMessage(e))
     # Return an empty data.frame
     return(data.frame())
   })

@@ -66,8 +66,10 @@ library(sizeR)
 Gene coordinates can be extracted from an annotation file (e.g. gtf, gff) or downloaded from [Ensembl](https://www.ensembl.org/biomart/martview). Here we use gene coordinates from Homo sapiens GRCh38.p14 Ensembl release 110. These should be in the format chromosome (e.g. Chromosome/scaffold name), chromosome start position [e.g. Gene start (bp)], chromosome end position [e.g. Gene end (bp)], and gene_id (e.g. Gene stable ID), in this specific order.
 
 ```{r gene lengths, message=FALSE, warning=FALSE}
-# Load user_specified gene lengths
-lengths.df <- gene_lengths(filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_release_110_gene_lengths.txt")
+# Load user-provided gene coordinates and specify name of gene_id in the gene coordinates file (in this example: Gene stable ID)
+lengths.df <- gene_lengths(
+  filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_release_110_gene_lengths.txt",
+  gene_id = "Gene stable ID")
 
 head(lengths.df)
 ```
@@ -75,7 +77,9 @@ head(lengths.df)
 ### Estimate gene size enrichment for quantitative variables
 #### Load quantitative data
 ```{r quantitative variables, message=FALSE, warning=FALSE}
-data.df <- read_csv(file = "inst/extdata/example_expression_data.csv")
+data.df <- sizeR_input(
+  file = "inst/extdata/example_expression_data.tsv",
+  gene_id = "gene_id")
 
 head(data.df)
 ```
@@ -90,6 +94,8 @@ head(data.df)
 #### Perform binomial test for gene size enrichment/depletion
 ```{r}
 binomial.df <- binomial_test(data.df, feature_name = "log2FC")
+
+head(binomial.df)
 ```
 
 #### sizeR tile plot
@@ -105,7 +111,9 @@ binomial_bar_plot(binomial.df)
 ### Estimate gene size enrichment for quantitative variables by sample
 #### Load quantitative data
 ```{r quantitative variable by sample, fig.height=4, fig.width=12, message=FALSE, warning=FALSE}
-data.df <- read_csv(file = "inst/extdata/example_expression_by_sample_data.csv")
+data.df <- sizeR_input(
+  file = "inst/extdata/example_expression_by_sample_data.tsv",
+  gene_id = "Gene stable ID")
 
 head(data.df)
 ```
@@ -127,7 +135,6 @@ head(binomial.df)
 
 #### Plot sizeR tile plot
 ```{r fig.height=4, fig.width=12}
-
 binomial_tile_plot(binomial.df, by_sample = T)
 ```
 
@@ -146,7 +153,9 @@ sizeR_line_plot(data.df) +
 #### Load gene set data
 ```{r message=FALSE, warning=FALSE}
 # Load gene set data
-data.df <- read_csv(file = "inst/extdata/example_gene_set_data.csv")
+data.df <- sizeR_input(
+  file = "inst/extdata/example_gene_set_data.tsv",
+  gene_id = "Gene stable ID")
 
 head(data.df)
 ```
