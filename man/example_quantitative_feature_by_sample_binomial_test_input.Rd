@@ -6,7 +6,7 @@
 \alias{example_quantitative_feature_by_sample_binomial_test_input}
 \title{Example quantitative feature by sample binomial test input}
 \format{
-A data frame with 10 rows and 6 variables:
+A data frame with 3742 rows and 6 variables:
 \describe{
 \item{sample1}{numeric, gene expression}
 \item{sample2}{numeric, gene expression}

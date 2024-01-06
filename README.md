@@ -149,7 +149,7 @@ head(binomial.df)
 #### sizeR tile plot
 
 ``` r
-binomial_tile_plot(binomial.df)
+sizeR_plot(binomial.df, type = "tile")
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
@@ -157,7 +157,7 @@ binomial_tile_plot(binomial.df)
 #### sizeR bar plot
 
 ``` r
-binomial_bar_plot(binomial.df)
+sizeR_plot(binomial.df, type = "bar")
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
@@ -221,7 +221,7 @@ head(binomial.df)
 #### Plot sizeR tile plot
 
 ``` r
-binomial_tile_plot(binomial.df, by_sample = T)
+sizeR_plot(binomial.df, by_sample = T, type = "tile")
 ```
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
@@ -229,7 +229,7 @@ binomial_tile_plot(binomial.df, by_sample = T)
 #### Plot sizeR bar plot
 
 ``` r
-binomial_bar_plot(binomial.df, by_sample = T)
+sizeR_plot(binomial.df, by_sample = T, type = "bar")
 ```
 
 <img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
@@ -237,11 +237,11 @@ binomial_bar_plot(binomial.df, by_sample = T)
 #### Plot sizeR line plot
 
 ``` r
-sizeR_line_plot(data.df) +
+sizeR_plot(data.df, type = "line") +
   scale_color_manual(values = c("condition1.r1" = "firebrick", "condition1.r2" = "firebrick", "condition2.r1" = "black", "condition2.r2" = "black"))
 ```
 
-<img src="man/figures/README-sizeR_line_plot-1.png" width="100%" />
+<img src="man/figures/README-sizeR_plot line-1.png" width="100%" />
 
 ### Estimate gene size enrichment for categorical variables
 
@@ -302,7 +302,7 @@ head(binomial.df)
 #### Plot sizeR tile plot
 
 ``` r
-binomial_tile_plot(binomial.df, categorical = T)
+sizeR_plot(binomial.df, categorical = T, type = "tile")
 ```
 
 <img src="man/figures/README-unnamed-chunk-13-1.png" width="100%" />
@@ -310,7 +310,7 @@ binomial_tile_plot(binomial.df, categorical = T)
 #### Plot sizeR bar plot
 
 ``` r
-binomial_bar_plot(binomial.df, categorical = T)
+sizeR_plot(binomial.df, categorical = T, type = "bar")
 ```
 
 <img src="man/figures/README-unnamed-chunk-14-1.png" width="100%" />

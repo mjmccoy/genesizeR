@@ -2,7 +2,7 @@
 #'
 #' An example dataframe of expression values (here TPM, but could be any quantitative variable), ensembl gene_id, and gene lengths
 #'
-#' @format A data frame with 10 rows and 6 variables:
+#' @format A data frame with 3742 rows and 6 variables:
 #' \describe{
 #'   \item{sample1}{numeric, gene expression}
 #'   \item{sample2}{numeric, gene expression}

@@ -100,12 +100,12 @@ head(binomial.df)
 
 #### sizeR tile plot
 ```{r}
-binomial_tile_plot(binomial.df)
+sizeR_plot(binomial.df, type = "tile")
 ```
 
 #### sizeR bar plot
 ```{r fig.height=2, fig.width=16}
-binomial_bar_plot(binomial.df)
+sizeR_plot(binomial.df, type = "bar")
 ```
 
 ### Estimate gene size enrichment for quantitative variables by sample
@@ -135,17 +135,17 @@ head(binomial.df)
 
 #### Plot sizeR tile plot
 ```{r fig.height=4, fig.width=12}
-binomial_tile_plot(binomial.df, by_sample = T)
+sizeR_plot(binomial.df, by_sample = T, type = "tile")
 ```
 
 #### Plot sizeR bar plot
 ```{r fig.height=8, fig.width=12}
-binomial_bar_plot(binomial.df, by_sample = T)
+sizeR_plot(binomial.df, by_sample = T, type = "bar")
 ```
 
 #### Plot sizeR line plot
-```{r sizeR_line_plot, message=FALSE, warning=FALSE}
-sizeR_line_plot(data.df) +
+```{r sizeR_plot line, message=FALSE, warning=FALSE}
+sizeR_plot(data.df, type = "line") +
   scale_color_manual(values = c("condition1.r1" = "firebrick", "condition1.r2" = "firebrick", "condition2.r1" = "black", "condition2.r2" = "black"))
 ```
 
@@ -176,12 +176,12 @@ head(binomial.df)
 
 #### Plot sizeR tile plot
 ```{r message=FALSE, warning=FALSE}
-binomial_tile_plot(binomial.df, categorical = T)
+sizeR_plot(binomial.df, categorical = T, type = "tile")
 ```
 
 #### Plot sizeR bar plot
 ```{r fig.height=4, fig.width=8}
-binomial_bar_plot(binomial.df, categorical = T)
+sizeR_plot(binomial.df, categorical = T, type = "bar")
 ```
 
 # Contact
