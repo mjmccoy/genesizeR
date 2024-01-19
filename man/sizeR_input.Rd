@@ -4,7 +4,7 @@
 \alias{sizeR_input}
 \title{sizeR_input: a function to input gene expression or gene set data}
 \usage{
-sizeR_input(filepath, gene_id)
+sizeR_input(filepath, gene_id, delim)
 }
 \arguments{
 \item{filepath}{a filepath to a tab-delimited file with gene_id and
@@ -12,6 +12,8 @@ expression data or gene set data}
 
 \item{gene_id}{name of gene_id column (e.g. \verb{Gene stable ID}).
 This must match the gene_id name in data.}
+
+\item{delim}{delimiter in file (e.g. "\t", or ",")}
 }
 \value{
 returns dataframe with gene_id and expression or gene set data
@@ -25,5 +27,6 @@ data.df <- sizeR_input(
     "extdata",
     "example_gene_coordinates.tsv",
     package = "sizeR"),
-  gene_id = "Gene stable ID")
+  gene_id = "Gene stable ID",
+  delim = "\t")
 }

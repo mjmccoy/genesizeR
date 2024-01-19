@@ -8,6 +8,7 @@
 #'  start position, end positions, and ensembl gene id (in that order)
 #' @param gene_id name of gene_id column (e.g. `Gene stable ID`).
 #'  This must match the gene_id name in data.
+#' @param delim delimiter in file (e.g. "\t", or ",")
 #'
 #' @return returns dataframe with gene lengths for user provided genes
 #' @export
@@ -18,12 +19,13 @@
 #'     "extdata",
 #'     "example_gene_coordinates.tsv",
 #'     package = "sizeR"),
-#'   gene_id = "Gene stable ID")
-gene_lengths <- function(filepath, gene_id) {
+#'   gene_id = "Gene stable ID",
+#'   delim = "\t")
+gene_lengths <- function(filepath, gene_id, delim) {
 
   tryCatch({
     # Attempt to read the file
-    data.df <- read_tsv(filepath)
+    data.df <- read_delim(filepath, delim = delim)
 
     # Check if the provided gene_id exists in the dataframe
     if (!gene_id %in% colnames(data.df)) {

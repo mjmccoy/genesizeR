@@ -74,7 +74,8 @@ this specific order.
 # Load user-provided gene coordinates and specify name of gene_id in the gene coordinates file (in this example: Gene stable ID)
 lengths.df <- gene_lengths(
   filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_release_110_gene_lengths.txt",
-  gene_id = "Gene stable ID")
+  gene_id = "Gene stable ID",
+  delim = "\t")
 
 head(lengths.df)
 #> # A tibble: 6 × 2
@@ -95,7 +96,8 @@ head(lengths.df)
 ``` r
 data.df <- sizeR_input(
   file = "inst/extdata/example_expression_data.tsv",
-  gene_id = "gene_id")
+  gene_id = "gene_id",
+  delim = "\t")
 
 head(data.df)
 #> # A tibble: 6 × 15
@@ -171,7 +173,8 @@ sizeR_plot(binomial.df, type = "bar")
 ``` r
 data.df <- sizeR_input(
   file = "inst/extdata/example_expression_by_sample_data.tsv",
-  gene_id = "Gene stable ID")
+  gene_id = "Gene stable ID",
+  delim = "\t")
 
 head(data.df)
 #> # A tibble: 6 × 5
@@ -253,7 +256,8 @@ sizeR_plot(data.df, type = "line") +
 # Load gene set data
 data.df <- sizeR_input(
   file = "inst/extdata/example_gene_set_data.tsv",
-  gene_id = "Gene stable ID")
+  gene_id = "Gene stable ID",
+  delim = "\t")
 
 head(data.df)
 #> # A tibble: 6 × 2
