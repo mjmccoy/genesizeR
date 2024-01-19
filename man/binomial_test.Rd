@@ -8,7 +8,8 @@ binomial_test(
   data.df,
   by_sample = FALSE,
   categorical = FALSE,
-  feature_name = NULL
+  feature_name = NULL,
+  alpha = 0.005
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ binomial_test(
 \item{categorical}{is group categorical?}
 
 \item{feature_name}{the exact feature name in the data (e.g. log2FC)}
+
+\item{alpha}{the p-value cutoff (default p < 0.005)}
 }
 \value{
 returns a dataframe with estimates for gene size enrichment by binomial test

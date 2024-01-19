@@ -9,6 +9,7 @@
 #' @param by_sample should data be grouped by sample?
 #' @param categorical is group categorical?
 #' @param feature_name the exact feature name in the data (e.g. log2FC)
+#' @param alpha the p-value cutoff (default p < 0.005)
 #'
 #' @return returns a dataframe with estimates for gene size enrichment by binomial test
 #' @export
@@ -34,7 +35,8 @@ binomial_test <- function(
     data.df,
     by_sample = FALSE,
     categorical = FALSE,
-    feature_name = NULL){
+    feature_name = NULL,
+    alpha = 0.005){
   gene_id <- value <- length_bins <- length_range <- feature_range <- NULL
   feature_bins <- name <- total_trials <- p_val <- feature <- group <- NULL
   if(categorical == FALSE & by_sample == TRUE){
@@ -87,8 +89,8 @@ binomial_test <- function(
       mutate(
         p_adj = p.adjust(p_val, method = "BH"),
         sign = case_when(
-          p_adj < 0.005 & n > (0.1*total_trials) ~ "+",
-          p_adj < 0.005 & n < (0.1*total_trials) ~ "-",
+          p_adj < alpha & n > (0.1*total_trials) ~ "+",
+          p_adj < alpha & n < (0.1*total_trials) ~ "-",
           TRUE ~ ""))
   } else if(categorical == FALSE & by_sample == FALSE){
     data.df %>%
@@ -141,8 +143,8 @@ binomial_test <- function(
       mutate(
         p_adj = p.adjust(p_val, method = "BH"),
         sign = case_when(
-          p_adj < 0.005 & n > (0.1*total_trials) ~ "+",
-          p_adj < 0.005 & n < (0.1*total_trials) ~ "-",
+          p_adj < alpha & n > (0.1*total_trials) ~ "+",
+          p_adj < alpha & n < (0.1*total_trials) ~ "-",
           TRUE ~ ""))
   } else if(categorical == TRUE){
     data.df %>%
@@ -181,8 +183,8 @@ binomial_test <- function(
       mutate(
         p_adj = p.adjust(p_val, method = "BH"),
         sign = case_when(
-          p_adj < 0.005 & n > (0.1*total_trials) ~ "+",
-          p_adj < 0.005 & n < (0.1*total_trials) ~ "-",
+          p_adj < alpha & n > (0.1*total_trials) ~ "+",
+          p_adj < alpha & n < (0.1*total_trials) ~ "-",
           TRUE ~ ""))
   }
 }

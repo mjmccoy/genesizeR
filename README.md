@@ -153,7 +153,7 @@ head(binomial.df)
 #### sizeR tile plot
 
 ``` r
-sizeR_plot(binomial.df, type = "tile")
+sizeR_plot(binomial.df, type = "tile", quantiles = FALSE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
@@ -242,7 +242,7 @@ sizeR_plot(binomial.df, by_sample = T, type = "bar")
 #### Plot sizeR line plot
 
 ``` r
-sizeR_plot(data.df, type = "line") +
+sizeR_plot(data.df, type = "line", quantiles = FALSE) +
   scale_color_manual(values = c("condition1.r1" = "firebrick", "condition1.r2" = "firebrick", "condition2.r1" = "black", "condition2.r2" = "black"))
 ```
 
