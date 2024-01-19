@@ -4,7 +4,13 @@
 \alias{sizeR_plot}
 \title{sizeR_plot()}
 \usage{
-sizeR_plot(data.df, by_sample = FALSE, categorical = FALSE, type)
+sizeR_plot(
+  data.df,
+  by_sample = FALSE,
+  categorical = FALSE,
+  quantiles = TRUE,
+  type
+)
 }
 \arguments{
 \item{data.df}{a dataframe output from binomial_test()}
@@ -12,6 +18,8 @@ sizeR_plot(data.df, by_sample = FALSE, categorical = FALSE, type)
 \item{by_sample}{should data be grouped by sample?}
 
 \item{categorical}{is group categorical?}
+
+\item{quantiles}{should x and y values be quantiles?}
 
 \item{type}{geom type (i.e. bar, tile, line)}
 }
@@ -31,6 +39,7 @@ sizeR_plot()
 data(example_quantitative_feature_binomial_test_output)
 sizeR_plot(
   data.df = example_quantitative_feature_binomial_test_output,
+  quantiles = FALSE,
   type = "bar")
 
 # quantitative feature by sample
@@ -38,12 +47,14 @@ data(example_quantitative_feature_by_sample_binomial_test_output)
 sizeR_plot(
   data.df = example_quantitative_feature_by_sample_binomial_test_output,
   by_sample = TRUE,
+  quantiles = FALSE,
   type = "bar")
 
 # categorical feature
 data(example_categorical_binomial_test_output)
 sizeR_plot(
   data.df = example_categorical_binomial_test_output, categorical = TRUE,
+  quantiles = FALSE,
   type = "bar")
 
 ####################
@@ -53,18 +64,21 @@ sizeR_plot(
 data(example_quantitative_feature_binomial_test_output)
 sizeR_plot(
   data.df = example_quantitative_feature_binomial_test_output,
+  quantiles = FALSE,
   type = "tile")
 
 data(example_quantitative_feature_by_sample_binomial_test_output)
 sizeR_plot(
   data.df = example_quantitative_feature_by_sample_binomial_test_output,
   by_sample = TRUE,
+  quantiles = FALSE,
   type = "tile")
 
 data(example_categorical_binomial_test_output)
 sizeR_plot(
   data.df = example_categorical_binomial_test_output,
   categorical = TRUE,
+  quantiles = FALSE,
   type = "tile")
 
 ###################
@@ -74,6 +88,7 @@ sizeR_plot(
 data(example_quantitative_feature_by_sample_binomial_test_input)
 sizeR_plot(
   data.df = example_quantitative_feature_by_sample_binomial_test_input,
+  quantiles = FALSE,
   type = "line") +
   scale_color_manual(values = c("condition1.r1" = "firebrick", "condition1.r2" = "firebrick", "condition2.r1" = "black", "condition2.r2" = "black"))
 }
