@@ -27,10 +27,11 @@ The `sizeR` package works with R version \>= 3.6.3 and several packages
 from `tidyverse`. Either `tidyverse` can be installed and loaded, or
 these individual packages can be installed and loaded:
 
--   `dplyr` version \>= 1.0.9
--   `tidyr` version \>= 1.2.0
--   `readr` version \>= 2.1.2
--   `ggplot2` version \>= 3.3.6
+- `dplyr` version \>= 1.0.9
+- `tidyr` version \>= 1.2.0
+- `readr` version \>= 2.1.2
+- `ggplot2` version \>= 3.3.6
+- `Hmisc` version \>= 5.1.1
 
 ## Installation
 
@@ -53,6 +54,7 @@ enrichment analysis with either quantitative or categorical variables:
 library(dplyr)
 library(tidyr)
 library(readr)
+library(Hmisc)
 library(ggplot2)
 library(sizeR)
 ```
@@ -105,7 +107,7 @@ head(data.df)
 #> 4        302.          315.            5.98          2.07     61.5   6.67 0.712
 #> 5       2597.         2867.            6.98          8.27    490.    8.94 0.502
 #> 6       2597.         2867.            6.98          8.27    490.    8.94 0.502
-#> # … with 8 more variables: stat <dbl>, pvalue <dbl>, FDR <dbl>, gene_id <chr>,
+#> # ℹ 8 more variables: stat <dbl>, pvalue <dbl>, FDR <dbl>, gene_id <chr>,
 #> #   gene_name <chr>, gene_biotype <chr>, gene.width <dbl>, GRCh38 <chr>
 ```
 
@@ -124,7 +126,7 @@ head(data.df)
 #> 4        302.          315.            5.98          2.07     61.5   6.67 0.712
 #> 5       2597.         2867.            6.98          8.27    490.    8.94 0.502
 #> 6       2597.         2867.            6.98          8.27    490.    8.94 0.502
-#> # … with 9 more variables: stat <dbl>, pvalue <dbl>, FDR <dbl>, gene_id <chr>,
+#> # ℹ 9 more variables: stat <dbl>, pvalue <dbl>, FDR <dbl>, gene_id <chr>,
 #> #   gene_name <chr>, gene_biotype <chr>, gene.width <dbl>, GRCh38 <chr>,
 #> #   length <dbl>
 ```
