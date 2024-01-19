@@ -18,7 +18,7 @@ analyze gene sizes within gene features (e.g. expression) and gene sets
 If you use `sizeR` please cite our [paper]()
 
     sizeR: an R package for the analysis of gene size within gene features and gene sets
-    Matthew J McCoy, Andrew Z Fire
+    Matthew J McCoy and Andrew Z Fire
     XXX, Volume XX, Issue XX, Month 2024, DOI, URL
 
 ## Requirements
