@@ -15,7 +15,7 @@ The goal of `sizeR` is to provide a collection of computational tools to
 analyze gene sizes within gene features (e.g. expression) and gene sets
 (e.g. upregulated/downregulated).
 
-If you use `sizeR` please cite our [paper]()
+If you use `sizeR`, please cite our [paper]():
 
     sizeR: an R package for the analysis of gene size within gene features and gene sets
     Matthew J McCoy and Andrew Z Fire
