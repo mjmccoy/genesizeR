@@ -192,5 +192,4 @@ sizeR_plot(binomial.df, categorical = T, type = "bar")
 
 # Contact
 If you have any comments or suggestions please raise an issue or contact us:\
-Matthew McCoy: mjmccoy@stanford.edu\
-Andrew Fire: afire@stanford.edu
+Matthew McCoy: mjmccoy@stanford.edu
