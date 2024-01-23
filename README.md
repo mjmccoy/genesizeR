@@ -18,7 +18,7 @@ analyze gene sizes within gene features (e.g. expression) and gene sets
 If you use `sizeR`, please cite our [paper]():
 
     sizeR: an R package for the analysis of gene size within gene features and gene sets
-    Matthew J McCoy and Andrew Z Fire
+    MJ McCoy and AZ Fire
     XXX, Volume XX, Issue XX, Month 2024, DOI, URL
 
 ## Requirements
@@ -46,7 +46,12 @@ devtools::install_github("mjmccoy/sizeR")
 ## Example usage
 
 This is series of examples which shows how to perform gene size
-enrichment analysis with either quantitative or categorical variables:
+enrichment analysis with either quantitative or categorical variables.
+The example data was modified from the following paper:
+
+    Heat shock induces premature transcript termination and reconfigures the human transcriptome.
+    S Cugusi, M Richard, K Gavin, J Walker, Z Han, P Pisano, M Wierer, A Stewart, and J Svejstrup
+    Molecular Cell 82, 1573-1588.e10 (2022), DOI: 10.1016/j.molcel.2022.01.007
 
 ### Load libraries
 
