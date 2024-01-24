@@ -120,6 +120,7 @@ sizeR_plot(binomial.df, type = "bar")
 
 ### Estimate gene size enrichment for quantitative variables by sample
 #### Load quantitative data
+sizeR can also work with quantitative data with multiple samples. The input data must contain only the gene_id (e.g. "Gene stable ID"), and then columns with numerical data for each sample (e.g. condition1.r1, condition1.r2, condition2.r1, condition2.r2, etc.).
 ```{r quantitative variable by sample, fig.height=4, fig.width=12, message=FALSE, warning=FALSE}
 data.df <- sizeR_input(
   file = "inst/extdata/example_expression_by_sample_data.tsv",

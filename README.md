@@ -175,6 +175,11 @@ sizeR_plot(binomial.df, type = "bar")
 
 #### Load quantitative data
 
+sizeR can also work with quantitative data with multiple samples. The
+input data must contain only the gene_id (e.g. “Gene stable ID”), and
+then columns with numerical data for each sample (e.g. condition1.r1,
+condition1.r2, condition2.r1, condition2.r2, etc.).
+
 ``` r
 data.df <- sizeR_input(
   file = "inst/extdata/example_expression_by_sample_data.tsv",
