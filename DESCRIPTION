@@ -1,5 +1,5 @@
-Package: sizeR
-Title: sizeR: Analysis of Gene Size in R
+Package: genesizeR
+Title: genesizeR: an R package for the analysis of gene size within gene features and gene sets
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Matthew", 
@@ -28,5 +28,5 @@ Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)
 LazyData: true
-URL: https://github.com/mjmccoy/sizeR
-BugReports: https://github.com/mjmccoy/sizeR/issues
+URL: https://github.com/mjmccoy/genesizeR
+BugReports: https://github.com/mjmccoy/genesizeR/issues

@@ -1,4 +1,4 @@
-#' sizeR_input: a function to input gene expression or gene set data
+#' genesizeR_input: a function to input gene expression or gene set data
 #'
 #' @import dplyr
 #' @import readr
@@ -13,14 +13,14 @@
 #' @export
 #'
 #' @examples
-#' data.df <- sizeR_input(
+#' data.df <- genesizeR_input(
 #'   file = system.file(
 #'     "extdata",
 #'     "example_gene_coordinates.tsv",
-#'     package = "sizeR"),
+#'     package = "genesizeR"),
 #'   gene_id = "Gene stable ID",
 #'   delim = "\t")
-sizeR_input <- function(filepath, gene_id, delim) {
+genesizeR_input <- function(filepath, gene_id, delim) {
 
   tryCatch({
     # Attempt to read the file
@@ -36,7 +36,7 @@ sizeR_input <- function(filepath, gene_id, delim) {
       dplyr::rename(gene_id := {{gene_id}})
   }, error = function(e) {
     # Handle errors gracefully
-    warning("An error occurred while processing sizeR_input. Details: ", conditionMessage(e))
+    warning("An error occurred while processing genesizeR_input. Details: ", conditionMessage(e))
     # Return an empty data.frame
     return(data.frame())
   })

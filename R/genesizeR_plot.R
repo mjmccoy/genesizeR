@@ -1,4 +1,4 @@
-#' sizeR_plot()
+#' genesizeR_plot()
 #'
 #' @import dplyr
 #' @import ggplot2
@@ -9,25 +9,25 @@
 #' @param type geom type (i.e. bar, tile, line)
 #' @param quantiles should x and y values be quantiles?
 #'
-#' @return returns a sizeR plot
+#' @return returns a genesizeR plot
 #' @export
 #'
 #' @examples
 #'
 #' ###################
-#' # sizeR bar plots #
+#' # genesizeR bar plots #
 #' ###################
 #'
 #' # quantitative feature
 #' data(example_quantitative_feature_binomial_test_output)
-#' sizeR_plot(
+#' genesizeR_plot(
 #'   data.df = example_quantitative_feature_binomial_test_output,
 #'   quantiles = FALSE,
 #'   type = "bar")
 #'
 #' # quantitative feature by sample
 #' data(example_quantitative_feature_by_sample_binomial_test_output)
-#' sizeR_plot(
+#' genesizeR_plot(
 #'   data.df = example_quantitative_feature_by_sample_binomial_test_output,
 #'   by_sample = TRUE,
 #'   quantiles = FALSE,
@@ -35,47 +35,47 @@
 #'
 #' # categorical feature
 #' data(example_categorical_binomial_test_output)
-#' sizeR_plot(
+#' genesizeR_plot(
 #'   data.df = example_categorical_binomial_test_output, categorical = TRUE,
 #'   quantiles = FALSE,
 #'   type = "bar")
 #'
 #' ####################
-#' # sizeR tile plots #
+#' # genesizeR tile plots #
 #' ####################
 #'
 #' data(example_quantitative_feature_binomial_test_output)
-#' sizeR_plot(
+#' genesizeR_plot(
 #'   data.df = example_quantitative_feature_binomial_test_output,
 #'   quantiles = FALSE,
 #'   type = "tile")
 #'
 #' data(example_quantitative_feature_by_sample_binomial_test_output)
-#' sizeR_plot(
+#' genesizeR_plot(
 #'   data.df = example_quantitative_feature_by_sample_binomial_test_output,
 #'   by_sample = TRUE,
 #'   quantiles = FALSE,
 #'   type = "tile")
 #'
 #' data(example_categorical_binomial_test_output)
-#' sizeR_plot(
+#' genesizeR_plot(
 #'   data.df = example_categorical_binomial_test_output,
 #'   categorical = TRUE,
 #'   quantiles = FALSE,
 #'   type = "tile")
 #'
 #' ###################
-#' # sizeR line plot #
+#' # genesizeR line plot #
 #' ###################
 #'
 #' data(example_quantitative_feature_by_sample_binomial_test_input)
-#' sizeR_plot(
+#' genesizeR_plot(
 #'   data.df = example_quantitative_feature_by_sample_binomial_test_input,
 #'   quantiles = FALSE,
 #'   type = "line") +
 #'   scale_color_manual(values = c("condition1.r1" = "firebrick", "condition1.r2" = "firebrick", "condition2.r1" = "black", "condition2.r2" = "black"))
 
-sizeR_plot <- function(
+genesizeR_plot <- function(
     data.df,
     by_sample = FALSE,
     categorical = FALSE,

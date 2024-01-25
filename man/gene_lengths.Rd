@@ -28,7 +28,7 @@ lengths.df <- gene_lengths(
   file = system.file(
     "extdata",
     "example_gene_coordinates.tsv",
-    package = "sizeR"),
+    package = "genesizeR"),
   gene_id = "Gene stable ID",
   delim = "\t")
 }

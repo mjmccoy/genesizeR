@@ -18,7 +18,7 @@
 #'   file = system.file(
 #'     "extdata",
 #'     "example_gene_coordinates.tsv",
-#'     package = "sizeR"),
+#'     package = "genesizeR"),
 #'   gene_id = "Gene stable ID",
 #'   delim = "\t")
 gene_lengths <- function(filepath, gene_id, delim) {

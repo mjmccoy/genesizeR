@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# sizeR <img src="man/figures/README-sizeR_logo.svg" align="right" height="138" /></a>
+# genesizeR <img src="man/figures/README-genesizeR_logo.svg" align="right" height="138" /></a>
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
@@ -21,18 +21,18 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-The goal of `sizeR` is to provide a collection of computational tools to analyze gene sizes within gene features (e.g. expression) and gene sets (e.g. upregulated/downregulated).
+The goal of `genesizeR` is to provide a collection of computational tools to analyze gene sizes within gene features (e.g. expression) and gene sets (e.g. upregulated/downregulated).
 
-If you use `sizeR`, please cite our [paper]():
+If you use `genesizeR`, please cite our [paper]():
 ```
-sizeR: an R package for the analysis of gene size within gene features and gene sets
+genesizeR: an R package for the analysis of gene size within gene features and gene sets
 MJ McCoy and AZ Fire
 XXX, Volume XX, Issue XX, Month 2024, DOI, URL
 ```
 
 ## Requirements
 
-The `sizeR` package works with R version >= 3.6.3 and several packages from `tidyverse`. Either `tidyverse` can be installed and loaded, or these individual packages can be installed and loaded:
+The `genesizeR` package works with R version >= 3.6.3 and several packages from `tidyverse`. Either `tidyverse` can be installed and loaded, or these individual packages can be installed and loaded:
 
 * `dplyr` version >= 1.0.9
 * `tidyr` version >= 1.2.0
@@ -42,11 +42,11 @@ The `sizeR` package works with R version >= 3.6.3 and several packages from `tid
 
 ## Installation
 
-You can install the development version of `sizeR` from [GitHub](https://github.com/) with:
+You can install the development version of `genesizeR` from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("mjmccoy/sizeR")
+devtools::install_github("mjmccoy/genesizeR")
 ```
 
 ## Example usage
@@ -66,7 +66,7 @@ library(tidyr)
 library(readr)
 library(Hmisc)
 library(ggplot2)
-library(sizeR)
+library(genesizeR)
 ```
 
 ### Load user-specified gene coordinates
@@ -86,7 +86,7 @@ head(lengths.df)
 ### Estimate gene size enrichment for quantitative variables
 #### Load quantitative data
 ```{r quantitative variables, message=FALSE, warning=FALSE}
-data.df <- sizeR_input(
+data.df <- genesizeR_input(
   file = "inst/extdata/example_expression_data.tsv",
   gene_id = "gene_id",
   delim = "\t")
@@ -108,21 +108,21 @@ binomial.df <- binomial_test(data.df, feature_name = "log2FC")
 head(binomial.df)
 ```
 
-#### sizeR tile plot
+#### genesizeR tile plot
 ```{r}
-sizeR_plot(binomial.df, type = "tile", quantiles = FALSE)
+genesizeR_plot(binomial.df, type = "tile", quantiles = FALSE)
 ```
 
-#### sizeR bar plot
+#### genesizeR bar plot
 ```{r fig.height=2, fig.width=16}
-sizeR_plot(binomial.df, type = "bar")
+genesizeR_plot(binomial.df, type = "bar")
 ```
 
 ### Estimate gene size enrichment for quantitative variables by sample
 #### Load quantitative data
-sizeR can also work with quantitative data with multiple samples. The input data must contain only the gene_id (e.g. "Gene stable ID"), and then columns with numerical data for each sample (e.g. condition1.r1, condition1.r2, condition2.r1, condition2.r2, etc.).
+genesizeR can also work with quantitative data with multiple samples. The input data must contain only the gene_id (e.g. "Gene stable ID"), and then columns with numerical data for each sample (e.g. condition1.r1, condition1.r2, condition2.r1, condition2.r2, etc.).
 ```{r quantitative variable by sample, fig.height=4, fig.width=12, message=FALSE, warning=FALSE}
-data.df <- sizeR_input(
+data.df <- genesizeR_input(
   file = "inst/extdata/example_expression_by_sample_data.tsv",
   gene_id = "Gene stable ID",
   delim = "\t")
@@ -145,19 +145,19 @@ binomial.df <- binomial_test(data.df, by_sample = T)
 head(binomial.df)
 ```
 
-#### Plot sizeR tile plot
+#### Plot genesizeR tile plot
 ```{r fig.height=4, fig.width=12}
-sizeR_plot(binomial.df, by_sample = T, type = "tile")
+genesizeR_plot(binomial.df, by_sample = T, type = "tile")
 ```
 
-#### Plot sizeR bar plot
+#### Plot genesizeR bar plot
 ```{r fig.height=8, fig.width=12}
-sizeR_plot(binomial.df, by_sample = T, type = "bar")
+genesizeR_plot(binomial.df, by_sample = T, type = "bar")
 ```
 
-#### Plot sizeR line plot
-```{r sizeR_plot line, message=FALSE, warning=FALSE}
-sizeR_plot(data.df, type = "line", quantiles = FALSE) +
+#### Plot genesizeR line plot
+```{r genesizeR_plot line, message=FALSE, warning=FALSE}
+genesizeR_plot(data.df, type = "line", quantiles = FALSE) +
   scale_color_manual(values = c("condition1.r1" = "firebrick", "condition1.r2" = "firebrick", "condition2.r1" = "black", "condition2.r2" = "black"))
 ```
 
@@ -165,7 +165,7 @@ sizeR_plot(data.df, type = "line", quantiles = FALSE) +
 #### Load gene set data
 ```{r message=FALSE, warning=FALSE}
 # Load gene set data
-data.df <- sizeR_input(
+data.df <- genesizeR_input(
   file = "inst/extdata/example_gene_set_data.tsv",
   gene_id = "Gene stable ID",
   delim = "\t")
@@ -187,14 +187,14 @@ binomial.df <- binomial_test(data.df, categorical = T)
 head(binomial.df)
 ```
 
-#### Plot sizeR tile plot
+#### Plot genesizeR tile plot
 ```{r message=FALSE, warning=FALSE}
-sizeR_plot(binomial.df, categorical = T, type = "tile")
+genesizeR_plot(binomial.df, categorical = T, type = "tile")
 ```
 
-#### Plot sizeR bar plot
+#### Plot genesizeR bar plot
 ```{r fig.height=4, fig.width=8}
-sizeR_plot(binomial.df, categorical = T, type = "bar")
+genesizeR_plot(binomial.df, categorical = T, type = "bar")
 ```
 
 # Contact

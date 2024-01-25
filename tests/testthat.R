@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(sizeR)
+library(genesizeR)
 
-test_check("sizeR")
+test_check("genesizeR")
