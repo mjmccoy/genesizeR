@@ -30,7 +30,6 @@ loaded, or these individual packages can be installed and loaded:
 - `dplyr` version \>= 1.0.9
 - `tidyr` version \>= 1.2.0
 - `readr` version \>= 2.1.2
-- `data.table` version \>= 1.14.8
 - `ggplot2` version \>= 3.3.6
 - `Hmisc` version \>= 5.1.1
 
