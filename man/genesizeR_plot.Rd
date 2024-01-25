@@ -89,6 +89,5 @@ data(example_quantitative_feature_by_sample_binomial_test_input)
 genesizeR_plot(
   data.df = example_quantitative_feature_by_sample_binomial_test_input,
   quantiles = FALSE,
-  type = "line") +
-  scale_color_manual(values = c("condition1.r1" = "firebrick", "condition1.r2" = "firebrick", "condition2.r1" = "black", "condition2.r2" = "black"))
+  type = "line")
 }

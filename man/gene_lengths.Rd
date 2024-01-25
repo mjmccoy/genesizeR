@@ -14,7 +14,7 @@ start position, end positions, and ensembl gene id (in that order)}
 \item{gene_id}{name of gene_id column (e.g. \verb{Gene stable ID}).
 This must match the gene_id name in data.}
 
-\item{delim}{delimiter in file (e.g. "\t", or ",")}
+\item{delim}{delimiter in file}
 }
 \value{
 returns dataframe with gene lengths for user provided genes

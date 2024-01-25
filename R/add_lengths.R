@@ -16,7 +16,7 @@
 #' data.df <- add_lengths(data.df = example_expression_data,
 #'                        lengths.df = example_lengths)
 add_lengths <- function(data.df, lengths.df) {
-
+  gene_id <- NULL
   # Check if the required columns are present in the input dataframes
   required_columns <- c("gene_id", "length")
   if (!all("gene_id" %in% colnames(data.df))) {

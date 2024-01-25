@@ -7,7 +7,7 @@
 #'  expression data or gene set data
 #' @param gene_id name of gene_id column (e.g. `Gene stable ID`).
 #'  This must match the gene_id name in data.
-#' @param delim delimiter in file (e.g. "\t", or ",")
+#' @param delim delimiter in file
 #'
 #' @return returns dataframe with gene_id and expression or gene set data
 #' @export
@@ -33,7 +33,7 @@ genesizeR_input <- function(filepath, gene_id, delim) {
 
     # Calculate gene lengths
     data.df <- data.df %>%
-      dplyr::rename(gene_id := {{gene_id}})
+      dplyr::rename(gene_id = !!{{gene_id}})
   }, error = function(e) {
     # Handle errors gracefully
     warning("An error occurred while processing genesizeR_input. Details: ", conditionMessage(e))

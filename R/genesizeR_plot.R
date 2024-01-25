@@ -72,8 +72,7 @@
 #' genesizeR_plot(
 #'   data.df = example_quantitative_feature_by_sample_binomial_test_input,
 #'   quantiles = FALSE,
-#'   type = "line") +
-#'   scale_color_manual(values = c("condition1.r1" = "firebrick", "condition1.r2" = "firebrick", "condition2.r1" = "black", "condition2.r2" = "black"))
+#'   type = "line")
 
 genesizeR_plot <- function(
     data.df,
@@ -81,8 +80,10 @@ genesizeR_plot <- function(
     categorical = FALSE,
     quantiles = TRUE,
     type){
-  length_range <- feature_range <- n <- mean_n <- sign <- name <- group <- NULL
-  if(by_sample == TRUE & categorical == FALSE & quantiles == FALSE & type == "bar"){
+  length_range <- length_bins <- value <- gene_id <- feature_range <- NULL
+  n <- mean_n <- sign <- name <- group <- NULL
+  if(by_sample == TRUE & categorical == FALSE & quantiles == FALSE &
+     type == "bar"){
     data.df %>%
       ggplot(aes(x = length_range, y = n, fill = sign)) +
       geom_col(col = "black") +
@@ -97,7 +98,8 @@ genesizeR_plot <- function(
       theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
       labs(x = "Gene size (kb)", y = "Genes") +
       facet_grid(feature_range~name)
-  } else if(by_sample == TRUE & categorical == FALSE & quantiles == TRUE & type == "bar"){
+  } else if(by_sample == TRUE & categorical == FALSE & quantiles == TRUE &
+            type == "bar"){
     data.df %>%
       mutate(
         length_range = as.integer(length_range),
@@ -118,7 +120,8 @@ genesizeR_plot <- function(
       theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
       labs(x = "Gene size quantiles", y = "Genes") +
       facet_grid(feature_range~name)
-  } else if(by_sample == FALSE & categorical == FALSE & quantiles == FALSE & type == "bar"){
+  } else if(by_sample == FALSE & categorical == FALSE & quantiles == FALSE &
+            type == "bar"){
     data.df %>%
       ggplot(aes(x = length_range, y = n, fill = sign)) +
       geom_col(col = "black") +
@@ -133,7 +136,8 @@ genesizeR_plot <- function(
       theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
       labs(x = "Gene size (kb)", y = "Genes") +
       facet_grid(~feature_range)
-  } else if(by_sample == FALSE & categorical == FALSE & quantiles == TRUE & type == "bar"){
+  } else if(by_sample == FALSE & categorical == FALSE & quantiles == TRUE &
+            type == "bar"){
     data.df %>%
       mutate(
         length_range = as.integer(length_range),
@@ -186,7 +190,8 @@ genesizeR_plot <- function(
       theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
       labs(x = "Gene size quantiles", y = "Genes") +
       facet_grid(~group)
-  } else if(by_sample == TRUE & categorical == FALSE & quantiles == FALSE & type == "tile"){
+  } else if(by_sample == TRUE & categorical == FALSE & quantiles == FALSE &
+            type == "tile"){
     data.df %>%
       ggplot(aes(x = length_range, y = feature_range, fill = n)) +
       geom_tile() +
@@ -196,12 +201,14 @@ genesizeR_plot <- function(
       theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
       labs(x = "Gene size (kb)", y = "Feature") +
       facet_grid(~name)
-  } else if(by_sample == TRUE & categorical == FALSE & quantiles == TRUE & type == "tile"){
+  } else if(by_sample == TRUE & categorical == FALSE & quantiles == TRUE &
+            type == "tile"){
     data.df %>%
       mutate(
         length_range = as.integer(length_range),
         feature_range = as.integer(feature_range)) %>%
-      ggplot(aes(x = as.factor(length_range), y = as.factor(feature_range), fill = n)) +
+      ggplot(aes(x = as.factor(length_range), y = as.factor(feature_range),
+                 fill = n)) +
       geom_tile() +
       geom_text(aes(label = sign)) +
       scale_fill_distiller(name = "Genes", palette = "RdGy") +
@@ -209,7 +216,8 @@ genesizeR_plot <- function(
       theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
       labs(x = "Gene size quantiles", y = "Feature quantiles") +
       facet_grid(~name)
-  } else if(by_sample == FALSE & categorical == FALSE & quantiles == FALSE & type == "tile"){
+  } else if(by_sample == FALSE & categorical == FALSE & quantiles == FALSE &
+            type == "tile"){
     data.df %>%
       ggplot(aes(x = length_range, y = feature_range, fill = n)) +
       geom_tile() +
@@ -219,12 +227,14 @@ genesizeR_plot <- function(
       theme_bw() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
       labs(x = "Gene size (kb)", y = "Feature")
-  } else if(by_sample == FALSE & categorical == FALSE & quantiles == TRUE & type == "tile"){
+  } else if(by_sample == FALSE & categorical == FALSE & quantiles == TRUE &
+            type == "tile"){
     data.df %>%
       mutate(
         length_range = as.integer(length_range),
         feature_range = as.integer(feature_range)) %>%
-      ggplot(aes(x = as.factor(length_range), y = as.factor(feature_range), fill = n)) +
+      ggplot(aes(x = as.factor(length_range), y = as.factor(feature_range),
+                 fill = n)) +
       geom_tile() +
       geom_text(aes(label = sign)) +
       scale_fill_distiller(name = "Genes", palette = "RdGy") +
@@ -246,7 +256,8 @@ genesizeR_plot <- function(
     data.df %>%
       mutate(
         length_range = as.integer(length_range)) %>%
-      ggplot(aes(x = as.factor(length_range), y = reorder(group, n), fill = n)) +
+      ggplot(aes(x = as.factor(length_range), y = reorder(group, n),
+                 fill = n)) +
       geom_tile() +
       geom_text(aes(label = sign)) +
       scale_fill_distiller(name = "Genes", palette = "RdGy") +
@@ -263,7 +274,8 @@ genesizeR_plot <- function(
         length = mean(length)
       ) %>%
       ggplot(aes(x = length/1e3, y = sqrt(value), col = name, group = name)) +
-      stat_summary(geom = "ribbon", fun.data = mean_cl_normal, alpha = 0.1, aes(col = NULL)) +
+      stat_summary(geom = "ribbon", fun.data = mean_cl_normal, alpha = 0.1,
+                   aes(col = NULL)) +
       stat_summary(geom = "point", size = 0.1) +
       stat_summary(geom = "line") +
       theme_bw() +
@@ -275,7 +287,8 @@ genesizeR_plot <- function(
       pivot_longer(!c(gene_id, length)) %>%
       mutate(length_bins = ntile(length, n = 100)) %>%
       ggplot(aes(x = length_bins, y = sqrt(value), col = name, group = name)) +
-      stat_summary(geom = "ribbon", fun.data = mean_cl_normal, alpha = 0.1, aes(col = NULL)) +
+      stat_summary(geom = "ribbon", fun.data = mean_cl_normal, alpha = 0.1,
+                   aes(col = NULL)) +
       stat_summary(geom = "point", size = 0.1) +
       stat_summary(geom = "line") +
       theme_bw() +

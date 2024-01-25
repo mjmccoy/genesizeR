@@ -37,6 +37,7 @@ The `genesizeR` package works with R version >= 3.6.3 and several packages from 
 * `dplyr` version >= 1.0.9
 * `tidyr` version >= 1.2.0
 * `readr` version >= 2.1.2
+* `data.table` version >= 1.14.8
 * `ggplot2` version >= 3.3.6
 * `Hmisc` version >= 5.1.1
 
@@ -73,7 +74,7 @@ library(genesizeR)
 
 Gene coordinates can be extracted from an annotation file (e.g. gtf, gff) or downloaded from [Ensembl](https://www.ensembl.org/biomart/martview). Here we use gene coordinates from Homo sapiens GRCh38.p14 Ensembl release 110. These should be in the format chromosome (e.g. Chromosome/scaffold name), chromosome start position [e.g. Gene start (bp)], chromosome end position [e.g. Gene end (bp)], and gene_id (e.g. Gene stable ID), in this specific order.
 
-```{r gene lengths, message=FALSE, warning=FALSE}
+```{r gene_lengths, message=FALSE, warning=FALSE}
 # Load user-provided gene coordinates and specify name of gene_id in the gene coordinates file (in this example: Gene stable ID)
 lengths.df <- gene_lengths(
   filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_release_110_gene_lengths.txt",
@@ -85,7 +86,7 @@ head(lengths.df)
 
 ### Estimate gene size enrichment for quantitative variables
 #### Load quantitative data
-```{r quantitative variables, message=FALSE, warning=FALSE}
+```{r quantitative_variables, message=FALSE, warning=FALSE}
 data.df <- genesizeR_input(
   file = "inst/extdata/example_expression_data.tsv",
   gene_id = "gene_id",
@@ -121,7 +122,7 @@ genesizeR_plot(binomial.df, type = "bar")
 ### Estimate gene size enrichment for quantitative variables by sample
 #### Load quantitative data
 genesizeR can also work with quantitative data with multiple samples. The input data must contain only the gene_id (e.g. "Gene stable ID"), and then columns with numerical data for each sample (e.g. condition1.r1, condition1.r2, condition2.r1, condition2.r2, etc.).
-```{r quantitative variable by sample, fig.height=4, fig.width=12, message=FALSE, warning=FALSE}
+```{r quantitative_variable_by_sample, fig.height=4, fig.width=12, message=FALSE, warning=FALSE}
 data.df <- genesizeR_input(
   file = "inst/extdata/example_expression_by_sample_data.tsv",
   gene_id = "Gene stable ID",
@@ -156,7 +157,7 @@ genesizeR_plot(binomial.df, by_sample = T, type = "bar")
 ```
 
 #### Plot genesizeR line plot
-```{r genesizeR_plot line, message=FALSE, warning=FALSE}
+```{r genesizeR_plot_line, message=FALSE, warning=FALSE}
 genesizeR_plot(data.df, type = "line", quantiles = FALSE) +
   scale_color_manual(values = c("condition1.r1" = "firebrick", "condition1.r2" = "firebrick", "condition2.r1" = "black", "condition2.r2" = "black"))
 ```

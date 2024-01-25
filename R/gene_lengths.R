@@ -8,7 +8,7 @@
 #'  start position, end positions, and ensembl gene id (in that order)
 #' @param gene_id name of gene_id column (e.g. `Gene stable ID`).
 #'  This must match the gene_id name in data.
-#' @param delim delimiter in file (e.g. "\t", or ",")
+#' @param delim delimiter in file
 #'
 #' @return returns dataframe with gene lengths for user provided genes
 #' @export
@@ -34,7 +34,7 @@ gene_lengths <- function(filepath, gene_id, delim) {
 
     # Calculate gene lengths
     data.df <- data.df %>%
-      dplyr::rename(gene_id := {{gene_id}}) %>%
+      dplyr::rename(gene_id = !!{{gene_id}}) %>%
       mutate(length = data.df[[3]] - data.df[[2]] + 1) %>%
       filter(!is.na(length)) %>%
       select(gene_id, length)

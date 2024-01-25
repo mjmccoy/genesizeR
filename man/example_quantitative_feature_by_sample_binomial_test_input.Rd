@@ -8,10 +8,10 @@
 \format{
 A data frame with 3742 rows and 6 variables:
 \describe{
-\item{sample1}{numeric, gene expression}
-\item{sample2}{numeric, gene expression}
-\item{sample3}{numeric, gene expression}
-\item{sample4}{numeric, gene expression}
+\item{condition1.r1}{numeric, gene expression}
+\item{condition1.r2}{numeric, gene expression}
+\item{condition2.r1}{numeric, gene expression}
+\item{condition2.r2}{numeric, gene expression}
 \item{gene_id}{character, ensembl gene id}
 \item{length}{numeric, gene length}
 ...
