@@ -12,14 +12,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 ## Overview
 
 The goal of `genesizeR` is to provide a collection of computational
-tools to analyze gene sizes within gene features (e.g. expression) and
-gene sets (e.g. upregulated/downregulated).
-
-If you use `genesizeR`, please cite our [paper]():
-
-    genesizeR: an R package for the analysis of gene size within gene features and gene sets
-    MJ McCoy and AZ Fire
-    XXX, Volume XX, Issue XX, Month 2024, DOI, URL
+tools to incorporate gene size into categorical and quantitative investigations of gene sets
 
 ## Requirements
 
