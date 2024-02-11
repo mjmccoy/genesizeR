@@ -1,4 +1,4 @@
-#' add_lengths
+#' genesizeR_add_lengths
 #'
 #' @import dplyr
 #' @import readr
@@ -13,9 +13,9 @@
 #' @examples
 #' data(example_expression_data)
 #' data(example_lengths)
-#' data.df <- add_lengths(data.df = example_expression_data,
+#' data.df <- genesizeR_add_lengths(data.df = example_expression_data,
 #'                        lengths.df = example_lengths)
-add_lengths <- function(data.df, lengths.df) {
+genesizeR_add_lengths <- function(data.df, lengths.df) {
   gene_id <- NULL
   # Check if the required columns are present in the input dataframes
   required_columns <- c("gene_id", "length")

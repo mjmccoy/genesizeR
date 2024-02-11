@@ -1,4 +1,4 @@
-#' binomial_test
+#' genesizeR_binomial_test
 #'
 #' @import dplyr
 #' @import ggplot2
@@ -17,21 +17,21 @@
 #' @examples
 #' # quantitative feature
 #' data(example_quantitative_feature_binomial_test_input)
-#' data.df <- binomial_test(
+#' data.df <- genesizeR_binomial_test(
 #'   data.df = example_quantitative_feature_binomial_test_input,
 #'   feature_name = "log2FC")
 #'
 #' # quantitative feature by sample
 #' data(example_quantitative_feature_by_sample_binomial_test_input)
-#' data.df <- binomial_test(
+#' data.df <- genesizeR_binomial_test(
 #'   data.df = example_quantitative_feature_by_sample_binomial_test_input,
 #'   by_sample = TRUE)
 #'
 #' # categorical feature
 #' data(example_categorical_binomial_test_input)
-#' data.df <- binomial_test(
+#' data.df <- genesizeR_binomial_test(
 #'   data.df = example_categorical_binomial_test_input, categorical = TRUE)
-binomial_test <- function(
+genesizeR_binomial_test <- function(
     data.df,
     by_sample = FALSE,
     categorical = FALSE,

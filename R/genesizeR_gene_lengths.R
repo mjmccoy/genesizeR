@@ -1,5 +1,5 @@
-#' gene_lengths: a function that allows users to input their own ensembl gene
-#'  list to calculate gene lengths
+#'  genesizeR_gene_lengths: a function that allows users to input their own
+#'  ensembl gene list to calculate gene lengths
 #'
 #' @import dplyr
 #' @import readr
@@ -14,14 +14,14 @@
 #' @export
 #'
 #' @examples
-#' lengths.df <- gene_lengths(
+#' lengths.df <- genesizeR_gene_lengths(
 #'   file = system.file(
 #'     "extdata",
 #'     "example_gene_coordinates.tsv",
 #'     package = "genesizeR"),
 #'   gene_id = "Gene stable ID",
 #'   delim = "\t")
-gene_lengths <- function(filepath, gene_id, delim) {
+genesizeR_gene_lengths <- function(filepath, gene_id, delim) {
 
   tryCatch({
     # Attempt to read the file
@@ -29,7 +29,8 @@ gene_lengths <- function(filepath, gene_id, delim) {
 
     # Check if the provided gene_id exists in the dataframe
     if (!gene_id %in% colnames(data.df)) {
-      stop("The specified gene_id '", gene_id, "' does not match any column names in the input data.")
+      stop("The specified gene_id '", gene_id,
+           "' does not match any column names in the input data.")
     }
 
     # Calculate gene lengths
@@ -40,7 +41,7 @@ gene_lengths <- function(filepath, gene_id, delim) {
       select(gene_id, length)
   }, error = function(e) {
     # Handle errors gracefully
-    warning("An error occurred while processing gene_lengths. Details: ", conditionMessage(e))
+    warning("An error occurred while processing genesizeR_gene_lengths. Details: ", conditionMessage(e))
     # Return an empty data.frame
     return(data.frame())
   })
