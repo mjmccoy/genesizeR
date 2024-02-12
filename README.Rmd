@@ -76,7 +76,7 @@ Gene coordinates can be extracted from an annotation file (e.g. gtf, gff) or dow
 ```{r genesizeR_gene_lengths, message=FALSE, warning=FALSE}
 # Load user-provided gene coordinates and specify name of gene_id in the gene coordinates file (in this example: Gene stable ID)
 lengths.df <- genesizeR_gene_lengths(
-  filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_release_110_genesizeR_gene_lengths.txt",
+  filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_release_110_gene_lengths.txt",
   gene_id = "Gene stable ID",
   delim = "\t")
 

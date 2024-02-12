@@ -12,7 +12,14 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 ## Overview
 
 The goal of `genesizeR` is to provide a collection of computational
-tools to incorporate gene size into categorical and quantitative investigations of gene sets
+tools to analyze gene sizes within gene features (e.g. expression) and
+gene sets (e.g. upregulated/downregulated).
+
+If you use `genesizeR`, please cite our [paper]():
+
+    genesizeR: an R package to incorporate gene size into categorical and quantitative investigations of gene sets
+    MJ McCoy and AZ Fire
+    XXX, Volume XX, Issue XX, Month 2024, DOI, URL
 
 ## Requirements
 
@@ -70,7 +77,7 @@ this specific order.
 
 ``` r
 # Load user-provided gene coordinates and specify name of gene_id in the gene coordinates file (in this example: Gene stable ID)
-lengths.df <- gene_lengths(
+lengths.df <- genesizeR_gene_lengths(
   filepath = "inst/extdata/hsap_GRCh38.p14_ensembl_release_110_gene_lengths.txt",
   gene_id = "Gene stable ID",
   delim = "\t")
@@ -114,7 +121,7 @@ head(data.df)
 #### Append gene lengths
 
 ``` r
-data.df <- add_lengths(data.df, lengths.df)
+data.df <- genesizeR_add_lengths(data.df, lengths.df)
 
 head(data.df)
 #> # A tibble: 6 × 16
@@ -134,7 +141,7 @@ head(data.df)
 #### Perform binomial test for gene size enrichment/depletion
 
 ``` r
-binomial.df <- binomial_test(data.df, feature_name = "log2FC")
+binomial.df <- genesizeR_binomial_test(data.df, feature_name = "log2FC")
 
 head(binomial.df)
 #> # A tibble: 6 × 7
@@ -194,7 +201,7 @@ head(data.df)
 #### Append gene lengths
 
 ``` r
-data.df <- add_lengths(data.df, lengths.df)
+data.df <- genesizeR_add_lengths(data.df, lengths.df)
 
 head(data.df)
 #> # A tibble: 6 × 6
@@ -212,7 +219,7 @@ head(data.df)
 
 ``` r
 # Binomial test
-binomial.df <- binomial_test(data.df, by_sample = T)
+binomial.df <- genesizeR_binomial_test(data.df, by_sample = T)
 
 head(binomial.df)
 #> # A tibble: 6 × 8
@@ -277,7 +284,7 @@ head(data.df)
 #### Append gene lengths
 
 ``` r
-data.df <- add_lengths(data.df, lengths.df)
+data.df <- genesizeR_add_lengths(data.df, lengths.df)
 
 head(data.df)
 #> # A tibble: 6 × 3
@@ -294,7 +301,7 @@ head(data.df)
 #### Perform binomial test for gene size enrichment/depletion
 
 ``` r
-binomial.df <- binomial_test(data.df, categorical = T)
+binomial.df <- genesizeR_binomial_test(data.df, categorical = T)
 
 head(binomial.df)
 #> # A tibble: 6 × 7
